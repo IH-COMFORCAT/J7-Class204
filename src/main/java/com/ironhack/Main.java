@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)  {
 
+        /*
         int[] array = {1, 2, 3, 4, 5};
 
 
@@ -18,7 +19,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("Por favor, introduce tu edad");
 
-        /*
+
         int age = parseInt(input.nextLine());
         System.out.println(age);
 
@@ -29,7 +30,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-         */
 
 
         int age = 0;
@@ -51,12 +51,54 @@ public class Main {
         }
 
 
+         */
 
 
         //FileWriter writer = new FileWriter("demo.txt");
         //"8" int 8 "33"
 
+        String name = null;
+        String surname = "Pérez";
 
+        try {
+            concat(name, surname);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        //concat(name, surname);
+
+        System.out.println("Estamos en la linea 72!!!!");
+
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(multiply(27, 2));
+
+
+    }
+
+    public static int multiply(int a, int b) {
+        // 10 = 5 * 2;
+        // 10/5 != 2;
+
+        int product = a * b;
+        if(product/a != b) {
+            throw new IllegalArgumentException("Product is greater than Integer.MAX_Value");
+        }
+        return product;
+
+    }
+
+    public static String concat(String firstName, String lastName) {
+
+        if (firstName == null || firstName.isBlank()) {
+            throw new IllegalArgumentException("First name must be defined");
+        }
+
+        if (lastName == null || lastName.isBlank()) {
+            throw new IllegalArgumentException("Last name must be defined");
+        }
+
+        return firstName + " " + lastName;
     }
 
     public static int parseInt(String str) {
